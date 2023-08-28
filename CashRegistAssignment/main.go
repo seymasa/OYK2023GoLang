@@ -34,14 +34,14 @@ func totalPrice(items []Item) float64 {
 
 func main() {
 
-	items := []Item{
-		{Name: "Çekirdek", Price: 20.00, Discount: 0.00},
-		{Name: "Cips", Price: 15.00, Discount: 1.50},
-		{Name: "Kola", Price: 30.00, Discount: 0.35},
+	items := []Describable{
+		Item{Name: "Çekirdek", Price: 20.00, Discount: 0.00},
+		Item{Name: "Cips", Price: 15.00, Discount: 1.50},
+		Item{Name: "Kola", Price: 30.00, Discount: 0.35},
 	}
 
 	for _, item := range items {
 		fmt.Println(item.Description())
 	}
-	fmt.Printf("Toplam Fiyat: %.2f TL\n", totalPrice(items))
+	//fmt.Printf("Toplam Fiyat: %.2f TL\n", totalPrice(items))
 }
