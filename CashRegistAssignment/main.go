@@ -20,13 +20,14 @@ type Describable interface {
 }
 
 func calculatePrice(i Item) float64 {
-	discountedPrice := i.Price - i.Discount
+	discountedPrice := i.Price - (i.Price * i.Discount / 100)
 	return discountedPrice
 }
 
-func totalPrice(items []Item) float64 {
+func totalPrice(items []Describable) float64 {
 	total := 0.0
-	for _, item := range items {
+	for _, describable := range items {
+		item := describable.(Item) // Type assertion
 		total += calculatePrice(item)
 	}
 	return total
@@ -43,5 +44,5 @@ func main() {
 	for _, item := range items {
 		fmt.Println(item.Description())
 	}
-	//fmt.Printf("Toplam Fiyat: %.2f TL\n", totalPrice(items))
+	fmt.Printf("Toplam Fiyat: %.2f TL\n", totalPrice(items))
 }
