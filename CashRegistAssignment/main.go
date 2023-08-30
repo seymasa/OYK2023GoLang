@@ -24,7 +24,7 @@ func calculatePrice(i Item) float64 {
 	return discountedPrice
 }
 
-func totalPrice(items []Describable) float64 {
+func TotalPrice(items []Describable) float64 {
 	total := 0.0
 	for _, describable := range items {
 		item := describable.(Item) // Type assertion
@@ -44,5 +44,5 @@ func main() {
 	for _, item := range items {
 		fmt.Println(item.Description())
 	}
-	fmt.Printf("Toplam Fiyat: %.2f TL\n", totalPrice(items))
+	fmt.Printf("Toplam Fiyat: %.2f TL\n", TotalPrice(items))
 }
